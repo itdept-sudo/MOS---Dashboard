@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-// La API Key se lee de Vercel por seguridad
-const API_KEY = import.meta.env.VITE_MOS_API_KEY;
-
-// DEBE ESTAR VACÍO PARA USAR EL PUENTE DE VERCEL
-const BASE_URL = ''; 
+const API_KEY = import.meta.env.VITE_MOS_API_KEY || 'MOS_API_83d2f91a6c5b0b4e2d8e4f5a1c2d3e4f';
+const BASE_URL = import.meta.env.DEV ? '' : 'https://mosdatabase-backend.k9pirj.easypanel.host';
 
 const mosApi = axios.create({
   baseURL: BASE_URL,
