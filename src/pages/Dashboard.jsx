@@ -43,25 +43,25 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="flex-1 min-h-screen bg-[#0f172a] overflow-hidden flex flex-col">
-      <header className="px-8 py-5 border-b border-slate-700/50 flex items-center justify-between bg-slate-900/40 backdrop-blur-md">
+    <div className="flex-1 min-h-screen bg-prosper-navy overflow-hidden flex flex-col">
+      <header className="px-8 py-5 border-b border-[#333333] flex items-center justify-between bg-prosper-dark-gray">
         <div>
-          <h1 className="text-2xl font-bold premium-gradient-text tracking-tight">{t('dashboardTitle')}</h1>
-          <p className="text-sm text-slate-500 flex items-center gap-2 mt-1">
-            <Activity size={14} className="text-emerald-500" />
+          <h1 className="text-3xl font-bold text-white tracking-tight uppercase">Print. Pack. Ship. Done.</h1>
+          <p className="text-sm text-gray-400 flex items-center gap-2 mt-1">
+            <Activity size={14} className="text-prosper-blue" />
             {t('lastUpdate')}: {lastUpdate.toLocaleTimeString()}
           </p>
         </div>
 
         <div className="flex items-center gap-4">
-          <button onClick={toggleLanguage} className="glass-button flex items-center gap-2">
+          <button onClick={toggleLanguage} className="brand-button-outline">
             <Globe size={16} /> {t('switchLanguage')}
           </button>
           
           <button 
             onClick={refresh} 
             disabled={loading}
-            className={`p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-all ${loading ? 'animate-spin' : ''}`}
+            className={`p-2 rounded border border-[#333333] bg-[#1A1A1A] text-gray-400 hover:text-prosper-blue transition-all ${loading ? 'animate-spin' : ''}`}
           >
             <RefreshCcw size={20} />
           </button>
@@ -97,23 +97,23 @@ const Dashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="glass-card p-6">
-            <h2 className="font-semibold text-slate-200 mb-6">{t('hourlyTrends')} (Mock)</h2>
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="brand-card p-6">
+            <h2 className="font-semibold text-white mb-6 uppercase tracking-wide text-sm">{t('hourlyTrends')} (Mock)</h2>
             <ProductionAreaChart data={mockHourlyData} />
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="glass-card p-6">
-            <h2 className="font-semibold text-slate-200 mb-6">{t('activeMachines')} Performance</h2>
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="brand-card p-6">
+            <h2 className="font-semibold text-white mb-6 uppercase tracking-wide text-sm">{t('activeMachines')} Performance</h2>
             <MachineBarChart data={machineData} />
           </motion.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card">
-          <div className="p-6 border-b border-slate-700/50 flex items-center justify-between">
-            <h2 className="font-semibold text-slate-200">Production Summary by Order</h2>
-            <span className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Live Data
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="brand-card">
+          <div className="p-6 border-b border-[#333333] flex items-center justify-between">
+            <h2 className="font-semibold text-white uppercase tracking-wide text-sm">Production Summary</h2>
+            <span className="flex items-center gap-2 text-xs text-prosper-blue bg-prosper-blue/10 px-2 py-1 rounded border border-prosper-blue/20 uppercase font-bold tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-prosper-blue animate-pulse"></span>
+              Live
             </span>
           </div>
           <ProductionTable data={monitorData} />

@@ -1,52 +1,71 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { LayoutDashboard, Settings, BarChart3, Cpu, Activity, ChevronRight } from 'lucide-react';
+import prosperLogo from '../assets/prosper-logo.png';
+import { 
+  LayoutDashboard, 
+  Settings, 
+  BarChart3, 
+  Cpu, 
+  Bell, 
+  Activity,
+  ChevronRight
+} from 'lucide-react';
 import { motion } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   const { t } = useLanguage();
 
   const menuItems = [
-    { icon: LayoutDashboard, label: t('dashboardTitle'), path: '/dashboard' },
-    { icon: BarChart3, label: 'Reports', path: '/reports' },
-    { icon: Cpu, label: 'Machines', path: '/machines' },
-    { icon: Activity, label: 'Real-time', path: '/real-time' },
-    { icon: Settings, label: 'Settings', path: '/settings' },
+    { icon: LayoutDashboard, label: t('dashboardTitle'), active: true },
+    { icon: BarChart3, label: 'Reports' },
+    { icon: Cpu, label: 'Machines' },
+    { icon: Activity, label: 'Real-time' },
+    { icon: Settings, label: 'Settings' },
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-700/50 bg-slate-900/50 backdrop-blur-xl h-screen flex flex-col sticky top-0">
-      <div className="p-6 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
-          <Activity className="text-white" size={20} />
+    <aside className="w-64 border-r border-[#333333] bg-prosper-dark-gray h-screen flex flex-col sticky top-0">
+      <div className="px-6 py-5 border-b border-[#333333] flex items-center">
+        <div className="bg-white rounded px-3 py-2 inline-flex">
+          <img 
+            src={prosperLogo} 
+            alt="Prosper Manufacturing" 
+            className="h-8 w-auto object-contain"
+          />
         </div>
-        <span className="font-bold text-xl text-white">MOS DASH</span>
       </div>
 
       <nav className="flex-1 px-4 py-6 space-y-2">
         {menuItems.map((item, idx) => (
-          <NavLink
+          <motion.div
             key={idx}
-            to={item.path}
-            className={({ isActive }) =>
-              `flex items-center justify-between p-3 rounded-xl transition-all ${
-                isActive ? 'bg-blue-600/10 text-blue-400 border border-blue-500/20' : 'text-slate-400 hover:text-slate-200'
-              }`
-            }
+            whileHover={{ x: 4 }}
+            className={`flex items-center justify-between p-3 rounded transition-all cursor-pointer ${
+              item.active 
+                ? 'bg-prosper-blue text-white' 
+                : 'text-gray-400 hover:text-white hover:bg-[#333333]'
+            }`}
           >
-            {({ isActive }) => (
-              <>
-                <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 w-full">
-                  <item.icon size={18} />
-                  <span className="font-medium text-sm">{item.label}</span>
-                </motion.div>
-                {isActive && <ChevronRight size={14} />}
-              </>
-            )}
-          </NavLink>
+            <div className="flex items-center gap-3">
+              <item.icon size={18} />
+              <span className="font-medium text-sm">{item.label}</span>
+            </div>
+            {item.active && <ChevronRight size={14} />}
+          </motion.div>
         ))}
       </nav>
+
+      <div className="p-4 border-t border-[#333333]">
+        <div className="flex items-center gap-3 p-3 bg-[#333333]/50 rounded">
+          <div className="w-8 h-8 rounded bg-prosper-blue flex items-center justify-center font-bold text-xs text-white">
+            JD
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium truncate text-white">Manager User</p>
+            <p className="text-xs text-gray-400">Administrator</p>
+          </div>
+        </div>
+      </div>
     </aside>
   );
 };
