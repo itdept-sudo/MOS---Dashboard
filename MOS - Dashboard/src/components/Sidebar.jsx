@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import prosperLogo from '../assets/prosper-logo.png';
 import { 
   LayoutDashboard, 
   Settings, 
@@ -24,13 +25,12 @@ const Sidebar = () => {
 
   return (
     <aside className="w-64 border-r border-[#333333] bg-prosper-dark-gray h-screen flex flex-col sticky top-0">
-      <div className="p-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded bg-prosper-blue flex items-center justify-center">
-            <Activity className="text-white" size={20} />
-          </div>
-          <span className="font-bold text-2xl text-white tracking-tight uppercase">PROSPER</span>
-        </div>
+      <div className="px-6 py-5 border-b border-[#333333]">
+        <img 
+          src={prosperLogo} 
+          alt="Prosper Manufacturing" 
+          className="h-10 w-auto object-contain"
+        />
       </div>
 
       <nav className="flex-1 px-4 py-6 space-y-2">
