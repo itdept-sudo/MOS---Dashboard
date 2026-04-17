@@ -25,12 +25,14 @@ const Sidebar = () => {
 
   return (
     <aside className="w-64 border-r border-[#333333] bg-prosper-dark-gray h-screen flex flex-col sticky top-0">
-      <div className="px-6 py-5 border-b border-[#333333]">
-        <img 
-          src={prosperLogo} 
-          alt="Prosper Manufacturing" 
-          className="h-10 w-auto object-contain"
-        />
+      <div className="px-6 py-5 border-b border-[#333333] flex items-center">
+        <div className="bg-white rounded px-3 py-2 inline-flex">
+          <img 
+            src={prosperLogo} 
+            alt="Prosper Manufacturing" 
+            className="h-8 w-auto object-contain"
+          />
+        </div>
       </div>
 
       <nav className="flex-1 px-4 py-6 space-y-2">
