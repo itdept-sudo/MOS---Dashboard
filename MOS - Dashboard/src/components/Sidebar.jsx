@@ -23,13 +23,13 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-700/50 bg-slate-900/50 backdrop-blur-xl h-screen flex flex-col sticky top-0">
+    <aside className="w-64 border-r border-[#333333] bg-prosper-dark-gray h-screen flex flex-col sticky top-0">
       <div className="p-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
+          <div className="w-10 h-10 rounded bg-prosper-blue flex items-center justify-center">
             <Activity className="text-white" size={20} />
           </div>
-          <span className="font-bold text-xl premium-gradient-text tracking-tight">MOS DASH</span>
+          <span className="font-bold text-2xl text-white tracking-tight uppercase">PROSPER</span>
         </div>
       </div>
 
@@ -38,10 +38,10 @@ const Sidebar = () => {
           <motion.div
             key={idx}
             whileHover={{ x: 4 }}
-            className={`flex items-center justify-between p-3 rounded-xl transition-all cursor-pointer ${
+            className={`flex items-center justify-between p-3 rounded transition-all cursor-pointer ${
               item.active 
-                ? 'bg-blue-600/10 text-blue-400 border border-blue-500/20' 
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                ? 'bg-prosper-blue text-white' 
+                : 'text-gray-400 hover:text-white hover:bg-[#333333]'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -53,14 +53,14 @@ const Sidebar = () => {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-slate-700/50">
-        <div className="flex items-center gap-3 p-3 bg-slate-800/30 rounded-xl">
-          <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center font-bold text-xs">
+      <div className="p-4 border-t border-[#333333]">
+        <div className="flex items-center gap-3 p-3 bg-[#333333]/50 rounded">
+          <div className="w-8 h-8 rounded bg-prosper-blue flex items-center justify-center font-bold text-xs text-white">
             JD
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium truncate">Manager User</p>
-            <p className="text-xs text-slate-500">Administrator</p>
+            <p className="text-sm font-medium truncate text-white">Manager User</p>
+            <p className="text-xs text-gray-400">Administrator</p>
           </div>
         </div>
       </div>

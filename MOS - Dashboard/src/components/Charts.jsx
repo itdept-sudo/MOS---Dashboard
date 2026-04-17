@@ -10,20 +10,20 @@ export const ProductionAreaChart = ({ data }) => (
       <AreaChart data={data}>
         <defs>
           <linearGradient id="colorProd" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
-            <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+            <stop offset="5%" stopColor="#1E5BFF" stopOpacity={0.3}/>
+            <stop offset="95%" stopColor="#1E5BFF" stopOpacity={0}/>
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" />
+        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#333333" />
         <XAxis 
           dataKey="name" 
-          stroke="#94a3b8" 
+          stroke="#9ca3af" 
           fontSize={12} 
           tickLine={false} 
           axisLine={false} 
         />
         <YAxis 
-          stroke="#94a3b8" 
+          stroke="#9ca3af" 
           fontSize={12} 
           tickLine={false} 
           axisLine={false} 
@@ -31,16 +31,16 @@ export const ProductionAreaChart = ({ data }) => (
         />
         <Tooltip 
           contentStyle={{ 
-            backgroundColor: '#1e293b', 
-            border: '1px solid #334155',
-            borderRadius: '8px',
-            color: '#f1f5f9'
+            backgroundColor: '#1A1A1A', 
+            border: '1px solid #333333',
+            borderRadius: '4px',
+            color: '#FFFFFF'
           }} 
         />
         <Area 
           type="monotone" 
           dataKey="total" 
-          stroke="#3b82f6" 
+          stroke="#1E5BFF" 
           fillOpacity={1} 
           fill="url(#colorProd)" 
         />
@@ -53,33 +53,33 @@ export const MachineBarChart = ({ data }) => (
   <div className="h-64 w-full">
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" />
+        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#333333" />
         <XAxis 
           dataKey="name" 
-          stroke="#94a3b8" 
+          stroke="#9ca3af" 
           fontSize={12} 
           tickLine={false} 
           axisLine={false} 
         />
         <YAxis 
-          stroke="#94a3b8" 
+          stroke="#9ca3af" 
           fontSize={12} 
           tickLine={false} 
           axisLine={false} 
         />
         <Tooltip 
-          cursor={{ fill: '#334155', opacity: 0.4 }}
+          cursor={{ fill: '#333333', opacity: 0.4 }}
           contentStyle={{ 
-            backgroundColor: '#1e293b', 
-            border: '1px solid #334155',
-            borderRadius: '8px',
-            color: '#f1f5f9'
+            backgroundColor: '#1A1A1A', 
+            border: '1px solid #333333',
+            borderRadius: '4px',
+            color: '#FFFFFF'
           }} 
         />
         <Bar 
           dataKey="count" 
-          fill="#818cf8" 
-          radius={[4, 4, 0, 0]} 
+          fill="#1E5BFF" 
+          radius={[2, 2, 0, 0]} 
           barSize={40}
         />
       </BarChart>
